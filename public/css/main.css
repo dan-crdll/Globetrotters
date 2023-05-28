@@ -1,0 +1,26 @@
+
+:root {
+    font-size: 15px;
+    --blue-color: #181155;
+    --title-font: 'Lobster', cursive;
+    --content-font: 'Work Sans', sans-serif;
+    --hover-color: #18115517;
+    --like-color: #d6004e15;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    padding: 5px;
+    color: crimson;
+    font-weight: bold;
+    font-size: 0.7rem;
+}
+
+@media (max-width: 800px) {
+    :root {
+        font-size: 12px;
+    }
+}

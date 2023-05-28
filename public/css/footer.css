@@ -1,0 +1,20 @@
+footer {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--blue-color);
+    border-top: 1px solid var(--blue-color);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer img {
+    height: 1rem;
+    margin-left: 1rem;
+}
+
+footer a {
+    text-decoration: none;
+}
