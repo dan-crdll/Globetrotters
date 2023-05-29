@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Hash;
@@ -11,7 +12,7 @@ class LandingController extends BaseController
 {
     public function showLogin()
     {
-        if (!session('user_id')) {
+        if (!Session::get('user_id')) {
             return view('login');
         } else {
             return redirect('home');
@@ -29,16 +30,16 @@ class LandingController extends BaseController
         if (!$res) {
             return view('login')
                 ->with('error', $error);
-        }
-
-        session(['user_id' => $res->ID]);
-        session(['username' => $username]);
-
-        if (Hash::check($password, $res->PASSWORD)) {
-            return redirect('home');
         } else {
-            return view('login')
-                ->with('error', $error);
+
+            if (Hash::check($password, $res->PASSWORD)) {
+                Session::put('user_id', $res->ID);
+                Session::put('username', $username);
+                return redirect('home');
+            } else {
+                return view('login')
+                    ->with('error', $error);
+            }
         }
     }
 
@@ -67,14 +68,14 @@ class LandingController extends BaseController
 
         $account->save();
 
-        session(['user_id' => $account->id]);
-        session(['username' => $username]);
+        Session::put('user_id', $account->id);
+        Session::put('username', $username);
         return redirect('home');
     }
 
     public function showSignUp()
     {
-        if (!session('user_id')) {
+        if (!Session::get('user_id')) {
             return view('signup');
         } else {
             return redirect('home');

@@ -8,6 +8,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleListController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     if (session('user_id')) {
@@ -21,7 +22,7 @@ Route::get('/signup', [LandingController::class, 'showSignUp']);
 Route::post('/login', [LandingController::class, 'login']);
 Route::post('/signup', [LandingController::class, 'signUp']);
 Route::get('/logout', function () {
-    session()->flush();
+    Session::flush();
     return redirect('login');
 });
 
