@@ -77,6 +77,8 @@ function onTweets(tweets) {
             let photo = t.photo;
 
             let article = document.createElement("div");
+            article.addEventListener('click', onModalView);
+
             article.classList.add("tweet");
             article.classList.add("article");
 
@@ -177,4 +179,18 @@ function onAlike(json) {
         document.querySelector("#article-list").appendChild(article);
     }
     return;
+}
+
+function onModalView(event) {
+    const modale = document.querySelector('#modal_view');
+    const list_modale = document.querySelector('#modal_view .page');
+    list_modale.appendChild(event.target);
+    modale.classList.remove('hidden');
+    modale.addEventListener('click', onCloseModale);
+}
+
+function onCloseModale(event) {
+    const last = document.querySelector('#modal_view .page').lastChild;
+    document.querySelector('#modal_view .page').removeChild(last);
+    document.querySelector('#modal_view').classList.add('hidden');
 }

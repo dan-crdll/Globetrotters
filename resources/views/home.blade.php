@@ -45,5 +45,11 @@
         <div id="hourglass">
             <img src="{{ asset('img/hourglass.gif') }}" class="hidden">
         </div>
+
+        <div id="modal_view" class="hidden">
+            <div class="page">
+                
+            </div>
+        </div>
     </section>
 @endsection
