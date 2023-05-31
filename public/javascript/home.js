@@ -1,5 +1,6 @@
 const search_form = document.forms["search_form"];
 search_form.addEventListener("submit", onSearch);
+document.querySelector("#modal_view").addEventListener("click", onCloseModale);
 
 var hourglass = document.querySelector("#hourglass img");
 var articlesFound = false;
@@ -77,7 +78,7 @@ function onTweets(tweets) {
             let photo = t.photo;
 
             let article = document.createElement("div");
-            article.addEventListener('click', onModalView);
+            article.addEventListener("click", onModalView);
 
             article.classList.add("tweet");
             article.classList.add("article");
@@ -148,7 +149,7 @@ function onAlike(json) {
     document.querySelector("#most_popular").style.display = "none";
     document.querySelector("#article-list").innerHTML = "";
     if (json["num"] === 0) {
-      articlesFound = false;
+        articlesFound = false;
         return;
     }
 
@@ -182,15 +183,22 @@ function onAlike(json) {
 }
 
 function onModalView(event) {
-    const modale = document.querySelector('#modal_view');
-    const list_modale = document.querySelector('#modal_view .page');
-    list_modale.appendChild(event.target);
-    modale.classList.remove('hidden');
-    modale.addEventListener('click', onCloseModale);
+    const modale = document.querySelector("#modal_view");
+    const list_modale = document.querySelector("#modal_view .page");
+    let selected = event.target;
+
+    if (!selected.classList.contains("tweet")) {
+        selected = selected.parentElement;
+    }
+
+    list_modale.appendChild(selected);
+    modale.classList.remove("hidden");
+    document.querySelector('body').classList.add('stop-scrolling');
 }
 
 function onCloseModale(event) {
-    const last = document.querySelector('#modal_view .page').lastChild;
-    document.querySelector('#modal_view .page').removeChild(last);
-    document.querySelector('#modal_view').classList.add('hidden');
+    const last = document.querySelector("#modal_view .page").lastChild;
+    document.querySelector("#article-list").appendChild(last);
+    document.querySelector("#modal_view").classList.add("hidden");
+    document.querySelector('body').classList.remove('stop-scrolling');
 }
