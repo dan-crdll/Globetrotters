@@ -110,7 +110,7 @@ function onPopular(json) {
         return;
     }
 
-    document.querySelector("#most_popular").style.display = "flex";
+    document.querySelector("#populars").classList.remove('hidden');
 
     if (json.length < 3) {
         num = json["articles"].length;
@@ -146,7 +146,7 @@ function onPopular(json) {
 
 function onAlike(json) {
     document.querySelector("#most_popular").innerHTML = "";
-    document.querySelector("#most_popular").style.display = "none";
+    document.querySelector("#populars").classList.add('hidden');
     document.querySelector("#article-list").innerHTML = "";
     if (json["num"] === 0) {
         articlesFound = false;

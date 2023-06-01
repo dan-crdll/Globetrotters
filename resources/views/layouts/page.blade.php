@@ -62,30 +62,32 @@
 
     </header>
 
-    <div id="sandwich">
-        <a href="/home" class="tabs">
-            <i class="fi fi-rr-house-blank"></i>
-            Home
-        </a>
+    <div id="sandwich_container" class="hidden">
+        <div id="sandwich">
+            <a href="/home" class="tabs">
+                <i class="fi fi-rr-house-blank"></i>
+                Home
+            </a>
 
-        <a href="/article_list" class="tabs">
-            <i class="fi fi-rr-plane"></i>
-            Articoli
-        </a>
+            <a href="/article_list" class="tabs">
+                <i class="fi fi-rr-plane"></i>
+                Articoli
+            </a>
 
-        <a href="/article_writing" class="tabs">
-            <i class="fi fi-rr-pen-nib"></i>
-            Scrivi un articolo
-        </a>
+            <a href="/article_writing" class="tabs">
+                <i class="fi fi-rr-pen-nib"></i>
+                Scrivi un articolo
+            </a>
 
-        <a href="/profile/{{ session('username') }}" class="tabs">
-            <i class="fi fi-rr-user"></i>
-            {{ $username }}
-        </a>
+            <a href="/profile/{{ session('username') }}" class="tabs">
+                <i class="fi fi-rr-user"></i>
+                {{ $username }}
+            </a>
 
-        <a id="logout_btn" href="/logout">
-            Logout
-        </a>
+            <a id="logout_btn" href="/logout">
+                Logout
+            </a>
+        </div>
     </div>
 
     @section('page')

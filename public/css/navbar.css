@@ -1,4 +1,3 @@
-
 body {
     margin: 0 10%;
     font-family: var(--content-font);
@@ -91,9 +90,9 @@ a {
     }
 
     #sandwich {
-        display: none;
         flex-direction: column;
         margin-bottom: 15px;
+        display: flex;
     }
 
 }

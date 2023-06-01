@@ -6,9 +6,9 @@ sandwich.addEventListener("click", onOpenMenu);
 function onOpenMenu(event) {
   console.log('ciao');
   if (isOpen) {
-    document.querySelector("#sandwich").style.display = "none";
+    document.querySelector("#sandwich_container").classList.add('hidden');
   } else {
-    document.querySelector("#sandwich").style.display = "flex";
+    document.querySelector("#sandwich_container").classList.remove('hidden');
   }
   isOpen = !isOpen;
 }
