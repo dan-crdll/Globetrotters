@@ -110,7 +110,7 @@ function onPopular(json) {
         return;
     }
 
-    document.querySelector("#populars").classList.remove('hidden');
+    document.querySelector("#populars").classList.remove("hidden");
 
     if (json.length < 3) {
         num = json["articles"].length;
@@ -146,7 +146,7 @@ function onPopular(json) {
 
 function onAlike(json) {
     document.querySelector("#most_popular").innerHTML = "";
-    document.querySelector("#populars").classList.add('hidden');
+    document.querySelector("#populars").classList.add("hidden");
     document.querySelector("#article-list").innerHTML = "";
     if (json["num"] === 0) {
         articlesFound = false;
@@ -185,20 +185,16 @@ function onAlike(json) {
 function onModalView(event) {
     const modale = document.querySelector("#modal_view");
     const list_modale = document.querySelector("#modal_view .page");
-    let selected = event.target;
-
-    if (!selected.classList.contains("tweet")) {
-        selected = selected.parentElement;
-    }
+    let selected = event.currentTarget;
 
     list_modale.appendChild(selected);
     modale.classList.remove("hidden");
-    document.querySelector('body').classList.add('stop-scrolling');
+    document.querySelector("body").classList.add("stop-scrolling");
 }
 
 function onCloseModale(event) {
     const last = document.querySelector("#modal_view .page").lastChild;
     document.querySelector("#article-list").appendChild(last);
     document.querySelector("#modal_view").classList.add("hidden");
-    document.querySelector('body').classList.remove('stop-scrolling');
+    document.querySelector("body").classList.remove("stop-scrolling");
 }
