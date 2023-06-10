@@ -1,3 +1,4 @@
-# Globetrotters: hw2 Web Programming 22/23
-## Daniele S. Cardullo - 1000014469
-### Versione Laravel utilizzata: Laravel Framework 10.12.0
+# Globetrotters
+### Daniele Cardullo - Laravel Framework
+Globetrotter è un blog di viaggi dove gli utenti possono pubblicare, leggere, commentare e aggiungere ai preferiti articoli di viaggio. Le API esterne utilizzate sono la Twitter API e la Unsplash API. 
+Le pagine dinamiche sono state realizzate utilizzando il framework Laravel e il database è MySQL (MariaDB).
